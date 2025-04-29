@@ -1,40 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float movementSpeed = 5f;
+
     void Start()
     {
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-        {             // Move the object to the right
-            transform.position = transform.position + new Vector3(0, 1, 0) * Time.deltaTime;
-            
 
+        
+        
+        Vector3 movement = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            movement += new Vector3(0, 1, 0);
         }
 
         if (Input.GetKey(KeyCode.S))
-        {             // Move the object to the right
-            transform.position = transform.position + new Vector3(0, -1, 0) * Time.deltaTime;
+        {
+            movement += new Vector3(0, -1, 0);
         }
-
 
         if (Input.GetKey(KeyCode.A))
-        {             // Move the object to the right
-            transform.position = transform.position + new Vector3(-1, 0, 0) * Time.deltaTime;
+        {
+            movement += new Vector3(-1, 0, 0);
         }
-
 
         if (Input.GetKey(KeyCode.D))
-        {             // Move the object to the right
-            transform.position = transform.position + new Vector3(1, 0, 0) * Time.deltaTime;
+        {
+            movement += new Vector3(1, 0, 0);
         }
+
+        transform.position += movement * movementSpeed * Time.deltaTime;
     }
+    
 }

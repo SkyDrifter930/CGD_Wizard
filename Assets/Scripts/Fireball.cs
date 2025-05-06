@@ -1,21 +1,30 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-   
+    public float fireballCooldown = 2f; // Standard-Cooldown in Sekunden
+
+    // Geschwindigkeit des Feuerballs, anpassbar im Unity-Editor
     public float speed = 5f;
 
-   
+    // Flugzeit des Feuerballs, anpassbar im Unity-Editor
+    public float flightDuration = 2f;
+
+    // Richtung des Feuerballs, anpassbar im Unity-Editor
+    public Vector3 direction = Vector3.left;
+
+    private float flightTimeElapsed = 0f;
+
     void Update()
     {
-        
-        transform.position += Vector3.left * speed * Time.deltaTime;
-    }
+        // Bewegt den Feuerball in die eingestellte Richtung mit der eingestellten Geschwindigkeit
+        transform.position += direction.normalized * speed * Time.deltaTime;
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Wizard"))
+        // Aktualisiert die verstrichene Flugzeit
+        flightTimeElapsed += Time.deltaTime;
+
+        // Zerstört den Feuerball, wenn die Flugzeit abgelaufen ist
+        if (flightTimeElapsed >= flightDuration)
         {
             Destroy(gameObject);
         }

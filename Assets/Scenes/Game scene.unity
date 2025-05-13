@@ -383,6 +383,7 @@ GameObject:
   - component: {fileID: 872492267}
   - component: {fileID: 872492269}
   - component: {fileID: 872492270}
+  - component: {fileID: 872492271}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Wizard
@@ -454,7 +455,7 @@ Transform:
   m_GameObject: {fileID: 872492266}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.489, y: -2.096, z: 0}
+  m_LocalPosition: {x: -1.89, y: -0.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -477,7 +478,7 @@ MonoBehaviour:
   sprintMultiplier: 2
   fireballPrefab: {fileID: 7237522685672535170, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
   fireballSpawnPoint: {fileID: 600332262}
-  fireballCooldown: 2
+  fireballCooldown: 0
 --- !u!60 &872492270
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -485,7 +486,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872492266}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -704,6 +705,28 @@ PolygonCollider2D:
       - {x: 0.62, y: 0.86285716}
       - {x: 0.6142857, y: 0.8742857}
   m_UseDelaunayMesh: 0
+--- !u!95 &872492271
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872492266}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ffb4361aaa3074f489f79f43a3036141, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &5712553128958910165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -786,12 +809,20 @@ PrefabInstance:
       value: 0.6613107
       objectReference: {fileID: 0}
     - target: {fileID: 621282441065031467, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 621282441065031467, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 621282441065031467, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.45
+      value: 1.13
       objectReference: {fileID: 0}
     - target: {fileID: 621282441065031467, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.16
+      value: -0.78
       objectReference: {fileID: 0}
     - target: {fileID: 621282441065031467, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -803,15 +834,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 621282441065031467, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 621282441065031467, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 621282441065031467, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 621282441065031467, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -825,8 +856,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3151318900148138973, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ed573bc1a3d73024eb03df881c6aa40b, type: 2}
     - target: {fileID: 5082408565643872350, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
       propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082408565643872350, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6277426437799359713, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
+      propertyPath: flightDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6277426437799359713, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
+      propertyPath: fireballCooldown
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7237522685672535170, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}

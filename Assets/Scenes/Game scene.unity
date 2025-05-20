@@ -478,7 +478,7 @@ MonoBehaviour:
   sprintMultiplier: 2
   fireballPrefab: {fileID: 7237522685672535170, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
   fireballSpawnPoint: {fileID: 600332262}
-  fireballCooldown: 0
+  fireballCooldown: 1
 --- !u!60 &872492270
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -818,11 +818,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 621282441065031467, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.13
+      value: -7.7
       objectReference: {fileID: 0}
     - target: {fileID: 621282441065031467, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.78
+      value: 2.94
       objectReference: {fileID: 0}
     - target: {fileID: 621282441065031467, guid: 7e9fb825169c6e34f8f7f0f763042ed3, type: 3}
       propertyPath: m_LocalPosition.z

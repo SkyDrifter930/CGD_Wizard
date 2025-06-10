@@ -12,12 +12,26 @@ public class Wizard : MonoBehaviour
     public Transform fireballSpawnPoint;
     public float fireballCooldown = 2f;
 
+    // Dash-Parameter
+    public float dashDistance = 5f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1f;
+    public float doubleTapThreshold = 0.3f; // Zeitfenster für Doppeltipp
+
+    private float dashCooldownTimer = 0f;
+    private bool isDashing = false;
+    private float dashTimeElapsed = 0f;
+    private Vector3 dashDirection;
+
+    private float lastLeftTapTime = -1f;
+    private float lastRightTapTime = -1f;
+
     private float cooldownTimer = 0f;
     private bool canShoot = true;
 
-    private int lastDirection = 1; 
+    private int lastDirection = 1;
 
-    private Animator animator; 
+    private Animator animator;
 
     void Start()
     {
@@ -26,6 +40,53 @@ public class Wizard : MonoBehaviour
 
     void Update()
     {
+        // Dash Cooldown aktualisieren
+        if (dashCooldownTimer > 0f)
+            dashCooldownTimer -= Time.deltaTime;
+
+        // Dash-Logik
+        if (isDashing)
+        {
+            float dashSpeed = dashDistance / dashDuration;
+            transform.position += dashDirection * dashSpeed * Time.deltaTime;
+            dashTimeElapsed += Time.deltaTime;
+            if (dashTimeElapsed >= dashDuration)
+            {
+                isDashing = false;
+            }
+            return; // Während des Dashs keine normale Bewegung
+        }
+
+        // Double-Tap Dash nach links
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (Time.time - lastLeftTapTime < doubleTapThreshold && dashCooldownTimer <= 0f)
+            {
+                isDashing = true;
+                dashTimeElapsed = 0f;
+                dashCooldownTimer = dashCooldown;
+                dashDirection = Vector3.left;
+                lastDirection = -1;
+                return;
+            }
+            lastLeftTapTime = Time.time;
+        }
+
+        // Double-Tap Dash nach rechts
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (Time.time - lastRightTapTime < doubleTapThreshold && dashCooldownTimer <= 0f)
+            {
+                isDashing = true;
+                dashTimeElapsed = 0f;
+                dashCooldownTimer = dashCooldown;
+                dashDirection = Vector3.right;
+                lastDirection = 1;
+                return;
+            }
+            lastRightTapTime = Time.time;
+        }
+
         Vector3 movement = Vector3.zero;
 
         if (Input.GetKey(KeyCode.W))
@@ -50,7 +111,6 @@ public class Wizard : MonoBehaviour
             lastDirection = 1;
         }
 
-        
         Vector3 scale = transform.localScale;
         scale.x = Mathf.Abs(scale.x) * lastDirection;
         transform.localScale = scale;
@@ -58,13 +118,13 @@ public class Wizard : MonoBehaviour
         float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? movementSpeed * sprintMultiplier : movementSpeed;
         transform.position += movement * currentSpeed * Time.deltaTime;
 
+        // Animation nur abspielen, wenn Bewegung vorhanden ist
         if (animator != null)
         {
             bool WizardWalking = movement.x != 0 || movement.y != 0;
             animator.SetBool("WizardWalking", WizardWalking);
         }
 
-       
         if (!canShoot)
         {
             cooldownTimer += Time.deltaTime;
@@ -107,4 +167,3 @@ public class Wizard : MonoBehaviour
         }
     }
 }
-

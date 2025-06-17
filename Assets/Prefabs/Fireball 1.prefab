@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7237522685672535170
+--- !u!1 &248933795975629320
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 621282441065031467}
-  - component: {fileID: 5082408565643872350}
-  - component: {fileID: 6277426437799359713}
-  - component: {fileID: 332173743385952119}
-  - component: {fileID: 4804860799741683192}
-  - component: {fileID: 3151318900148138973}
+  - component: {fileID: 372031981403853618}
+  - component: {fileID: 1216804280649435861}
+  - component: {fileID: 1540619410344743021}
+  - component: {fileID: 7522817046181256069}
+  - component: {fileID: 7896371626668605711}
+  - component: {fileID: 388126964364798832}
   m_Layer: 0
-  m_Name: Fireball
+  m_Name: Fireball 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &621282441065031467
+--- !u!4 &372031981403853618
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7237522685672535170}
+  m_GameObject: {fileID: 248933795975629320}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.45, y: -0.38, z: 0.06813221}
+  m_LocalPosition: {x: 7.66, y: 0.13, z: 0.06813221}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5082408565643872350
+--- !u!212 &1216804280649435861
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7237522685672535170}
+  m_GameObject: {fileID: 248933795975629320}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -91,29 +91,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6277426437799359713
+--- !u!114 &1540619410344743021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7237522685672535170}
+  m_GameObject: {fileID: 248933795975629320}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc022034b0b8e234b985d2d9c1b3809f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireballCooldown: 10
   speed: 5
   flightDuration: 2
-  direction: {x: 1, y: 0, z: 0}
---- !u!58 &332173743385952119
+--- !u!58 &7522817046181256069
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7237522685672535170}
+  m_GameObject: {fileID: 248933795975629320}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -141,16 +139,16 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.6700001, y: 0.6613105}
-  m_Radius: 0.707722
---- !u!50 &4804860799741683192
+  m_Offset: {x: -0.025868177, y: 0.018353522}
+  m_Radius: 0.6549113
+--- !u!50 &7896371626668605711
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7237522685672535170}
+  m_GameObject: {fileID: 248933795975629320}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -170,14 +168,14 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &3151318900148138973
+--- !u!95 &388126964364798832
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7237522685672535170}
+  m_GameObject: {fileID: 248933795975629320}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ed573bc1a3d73024eb03df881c6aa40b, type: 2}

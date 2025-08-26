@@ -12,6 +12,15 @@ public class Wizard : MonoBehaviour
     public Transform fireballSpawnPoint;
     public float fireballCooldown = 2f;
 
+    // Mana & Health für UI
+    public float maxMana = 100f;
+    public float mana = 100f;
+    public float manaRegenRate = 10f; // Mana pro Sekunde
+    public float fireballManaCost = 20f;
+
+    public float maxHealth = 100f;
+    public float health = 100f;
+
     // Dash-Parameter
     public float dashDistance = 5f;
     public float dashDuration = 0.2f;
@@ -40,6 +49,14 @@ public class Wizard : MonoBehaviour
 
     void Update()
     {
+        // Mana regenerieren
+        if (mana < maxMana)
+        {
+            mana += manaRegenRate * Time.deltaTime;
+            if (mana > maxMana)
+                mana = maxMana;
+        }
+
         // Dash Cooldown aktualisieren
         if (dashCooldownTimer > 0f)
             dashCooldownTimer -= Time.deltaTime;
@@ -149,7 +166,7 @@ public class Wizard : MonoBehaviour
 
     void ShootFireball()
     {
-        if (fireballPrefab != null && fireballSpawnPoint != null)
+        if (fireballPrefab != null && fireballSpawnPoint != null && mana >= fireballManaCost)
         {
             GameObject fireballObj = Instantiate(fireballPrefab, fireballSpawnPoint.position, fireballSpawnPoint.rotation);
 
@@ -160,6 +177,13 @@ public class Wizard : MonoBehaviour
             {
                 fireballScript.SetDirection(fireballDirection);
             }
+
+            mana -= fireballManaCost;
+            if (mana < 0) mana = 0;
+        }
+        else if (mana < fireballManaCost)
+        {
+            Debug.Log("Nicht genug Mana!");
         }
         else
         {
